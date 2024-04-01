@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form kineme</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <form>
+            <h1>Sign up</h1>
+            <div class="input-box">
+                <div class="input-group">
+                <i class='bx bxs-user'></i>
+				<input type="text" id="name" name="name" placeholder="Full Name" required>
+			</div>
+            </div>
+            <div class="input-box">
+                <div class="input-group">
+                <i class='bx bxs-user'></i>
+				<input type="text" id="username" name="username" placeholder="Username" required>
+			</div>
+            </div>
+            <div class="input-box">
+                <div class="input-group">
+                <i class='bx bxl-gmail' ></i>
+				<input type="email" id="email" name="email" placeholder="Email" required>
+			</div>
+            </div>
+            <div class="input-box">
+                <div class="input-group">
+                <i class='bx bxs-home' ></i>
+                <input type="text" name="address" placeholder="Address" required></textarea>
+            </div>
+            </div>
+            <div class="input-box">
+                <div class="input-group">
+                <i class='bx bxs-lock-alt' ></i>
+                <input type="password" id="password" name="password" placeholder="Password" required><br>
+				<label><input type="checkbox" id="myCheckbox" onclick="checkboxChanged()"> Show password</label><br><br>
+			</div>
+            </div>
+			<div class="input-box">
+                <div class="input-group">
+				<label for="interests" style ="font-size: 20px;">Interests:</label><br>
+				<textarea id="interests" name="interests" required></textarea>
+			</div>
+            </div>
+			<div class="buttons">
+				<button type="submit" value="Submit">Submit</button>
+				<button type="reset" value="Reset">Reset</button>
+			</div>
+        </form>
+    </div>
+
+    <script>
+        function checkboxChanged(){
+            showPass();
+        }
+		function showPass() {
+			var passwordInput = document.getElementById("password");
+			if (passwordInput.type === "password") {
+				passwordInput.type = "text";
+			} else {
+				passwordInput.type = "password";
+			}
+		}
+	</script>
+</body>
+</html>
