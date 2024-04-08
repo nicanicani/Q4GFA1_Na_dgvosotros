@@ -6,6 +6,19 @@
     font-family: "Poppins", sans-serif;;
 }
 
+
+fieldset{
+    margin-bottom: 1vh;
+    padding: 1vh;
+    border: 2px solid #31572c;
+    border-radius: 10px;
+}
+legend{
+    margin-left: 20px;
+    font-size: 25px;
+    font-weight: 800;
+}
+
 body{
     display: flex;
     justify-content: center;
@@ -16,9 +29,11 @@ body{
 
 .container{
     width: 30vw;
-    height: 90vh;
+    min-height: 90vh;
+    height: auto;
+    margin: 2vh;
     background-color: #588157;
-    padding: 5vh;
+    padding: 3vh;
     border-radius: 10px;
     color: whitesmoke;
 }
@@ -42,36 +57,37 @@ body{
 
 .buttons{
     text-align: center;
-    button[type="submit"] {
-        width: 20%;
-        padding: 5px;
-        margin: 5px;
-        background-color: #31572c;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    button[type="submit"]:hover {
-        background-color: #3c6a36;
-    }
-    button[type="reset"] {
-        width: 20%;
-        padding: 5px;
-        margin: 5px;
-        background-color: #ac271e;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    button[type="reset"]:hover {
-        background-color: #e0353a;
-    }
+}
+
+button[type="submit"] {
+    width: 20%;
+    padding: 5px;
+    margin: 5px;
+    background-color: #31572c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button[type="submit"]:hover {
+    background-color: #3c6a36;
+}
+button[type="reset"] {
+    width: 20%;
+    padding: 5px;
+    margin: 5px;
+    background-color: #ac271e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button[type="reset"]:hover {
+    background-color: #e0353a;
 }
 
 .input-group #interests{
@@ -123,4 +139,20 @@ body{
 
 .input-group input[type="text"]::placeholder, input[type="password"]::placeholder, input[type="email"]::placeholder{
     color: white;
+}
+
+#gender{
+    width: 10vw;
+    height: 5vh;
+    margin: 1vh;
+    padding: 1vh;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    outline: none;
+    color: white;
+}
+#gender option{
+    background-color: #588157;
+    border-radius: 10px;
 }

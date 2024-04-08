@@ -3,56 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form kineme</title>
+    <title>Sign Up Form</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container">
-        <form>
-            <h1>Sign up</h1>
-            <div class="input-box">
-                <div class="input-group">
-                <i class='bx bxs-user'></i>
-				<input type="text" id="name" name="name" placeholder="Full Name" required>
-			</div>
-            </div>
-            <div class="input-box">
-                <div class="input-group">
-                <i class='bx bxs-user'></i>
-				<input type="text" id="username" name="username" placeholder="Username" required>
-			</div>
-            </div>
-            <div class="input-box">
-                <div class="input-group">
-                <i class='bx bxl-gmail' ></i>
-				<input type="email" id="email" name="email" placeholder="Email" required>
-			</div>
-            </div>
-            <div class="input-box">
-                <div class="input-group">
-                <i class='bx bxs-home' ></i>
-                <input type="text" name="address" placeholder="Address" required></textarea>
-            </div>
-            </div>
-            <div class="input-box">
-                <div class="input-group">
-                <i class='bx bxs-lock-alt' ></i>
-                <input type="password" id="password" name="password" placeholder="Password" required><br>
-				<label><input type="checkbox" id="myCheckbox" onclick="checkboxChanged()"> Show password</label><br><br>
-			</div>
-            </div>
-			<div class="input-box">
-                <div class="input-group">
-				<label for="interests" style ="font-size: 20px;">Interests:</label><br>
-				<textarea id="interests" name="interests" required></textarea>
-			</div>
-            </div>
-			<div class="buttons">
-				<button type="submit" value="Submit">Submit</button>
-				<button type="reset" value="Reset">Reset</button>
-			</div>
+        <form id="myForm">
+            <fieldset>
+                <legend>Sign Up</legend>
+                <div class="input-box">
+                    <div class="input-group">
+                        <i class='bx bxs-user'></i>
+                        <input type="text" id="name" name="Name" placeholder="Full Name" required onblur="validateInput(this)" onfocus="removeValidation(this)">
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="input-group">
+                        <i class='bx bxs-user'></i>
+                        <input type="text" id="username" name="Username" placeholder="Username" required onblur="validateInput(this)" onfocus="removeValidation(this)">
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="input-group">
+                        <i class='bx bxl-gmail' ></i>
+                        <input type="email" id="email" name="Email" placeholder="Email" required onblur="validateInput(this)" onfocus="removeValidation(this)">
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="input-group">
+                        <i class='bx bxs-home' ></i>
+                        <input type="text" name="Address" placeholder="Address" required onblur="validateInput(this)" onfocus="removeValidation(this)">
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="input-group">
+                        <i class='bx bxs-lock-alt' ></i>
+                        <input type="password" id="password" name="Password" placeholder="Password" required onblur="validateInput(this)" onfocus="removeValidation(this)">
+                        <br>
+                        <label><input type="checkbox" name="myCheckbox" onclick="checkboxChanged()"> Show password</label><br>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="input-group">
+                        <i class='bx bx-male-female'></i>
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="Gender" required onblur="validateInput(this)" onfocus="removeValidation(this)">
+                            <option value="" selected disabled hidden>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Prefer not to mention">Prefer not to mention</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="input-group">
+                        <label for="interests" style ="font-size: 20px;">Interests:</label><br>
+                        <textarea id="interests" name="Interests" required onblur="validateInput(this)" onfocus="removeValidation(this)"></textarea>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button type="submit" value="Submit">Submit</button>
+                    <button type="reset" value="Reset" onclick="clearOutput()">Reset</button>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Information</legend>
+                <div id="output"></div>
+            </fieldset>
         </form>
     </div>
 
@@ -67,6 +86,29 @@
 			} else {
 				passwordInput.type = "password";
 			}
+		}
+		function validateInput(input) {
+			if (input.value == "") {
+				input.style.border = "2px solid #e0353a";
+			}
+		}
+		function removeValidation(input) {
+			input.style.border = "2px solid #3c6a36";
+		}
+		document.getElementById("myForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var output = document.getElementById("output");
+        output.innerHTML = "";
+        var inputs = document.querySelectorAll("input, select, textarea");
+        for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].name!= "myCheckbox") {
+            output.innerHTML += inputs[i].name + ": " + inputs[i].value + "<br>";
+        }
+        }
+        });
+		function clearOutput() {
+			var output = document.getElementById("output");
+			output.innerHTML = "";
 		}
 	</script>
 </body>
